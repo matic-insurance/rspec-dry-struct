@@ -28,6 +28,10 @@ Or install it yourself as:
 
     $ gem install rspec-dry-struct
 
+If you don't have gem autoload, require matcher in your `spec_helper.rb`:
+
+    require 'rspec/dry/struct'
+
 ## Usage
 
 Let's assume you have such struct:

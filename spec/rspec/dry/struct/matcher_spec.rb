@@ -25,16 +25,24 @@ RSpec.describe RSpec::Dry::Struct::Matcher do
   context 'with wrong attr_name' do
     let(:attr_name) { :last_name }
 
-    it 'does not match' do
+    it 'fails' do
       expect(subject.matches?(struct_class)).to eq false
+      expect(subject.failure_message)
+        .to eq "expected #{struct_class} to have :last_name attribute, but it was not found"
     end
   end
 
   context 'with wrong type' do
     let(:attr_type) { Types::String }
 
-    it 'does not match' do
+    it 'fails' do
       expect(subject.matches?(struct_class)).to eq false
+      expect(subject.failure_message)
+        .to eq "expected #{struct_class} to have :first_name attribute, but type is wrong"
     end
+  end
+
+  it 'returns description' do
+    expect(subject.description).to eq 'have :first_name attribute'
   end
 end
