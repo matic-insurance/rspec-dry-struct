@@ -8,13 +8,13 @@ describe RSpec::Dry::Struct do
   let(:instance) { Class.new.send(:include, described_class).new }
 
   describe '#have_attribute' do
-    let(:types) { Dry::Types.module }
-    subject { instance.have_attribute(:attr, types::String) }
+    Types = Dry::Types.module
+    subject { instance.have_attribute(:attr, Types::String) }
 
     it 'returns a new matcher instance' do
       expect(subject).to be_an_instance_of(RSpec::Dry::Struct::Matcher)
       expect(subject.attr_name).to eq :attr
-      expect(subject.attr_type).to eq types::String
+      expect(subject.attr_type).to eq Types::String
     end
   end
 end

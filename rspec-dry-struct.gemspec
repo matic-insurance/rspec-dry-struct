@@ -5,7 +5,7 @@ require 'rspec/dry/struct/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'rspec-dry-struct'
-  spec.version       = Rspec::Dry::Struct::VERSION
+  spec.version       = RSpec::Dry::Struct::VERSION
   spec.authors       = ['Sergey Kukunin']
   spec.email         = ['sergey.kukunin@gmail.com']
 
