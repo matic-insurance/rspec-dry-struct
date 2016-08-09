@@ -1,9 +1,18 @@
+require 'rspec/core'
+require 'dry/types'
 require 'rspec/dry/struct/version'
+require 'rspec/dry/struct/matcher'
 
-module Rspec
+module RSpec
   module Dry
     module Struct
-      # Your code goes here...
+      def have_attribute(name, type)
+        Matcher.new(name, type)
+      end
     end
   end
+end
+
+RSpec.configure do |config|
+  config.include RSpec::Dry::Struct
 end
