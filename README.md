@@ -50,7 +50,7 @@ require 'spec_helper'
 RSpec.describe PersonName do
   describe 'attributes' do
     subject { described_class }
-    it { is_expected.to have_attributes(:first_name, Types::Strict::String) }
+    it { is_expected.to have_attribute(:first_name, Types::Strict::String) }
   end
 end
 ```
