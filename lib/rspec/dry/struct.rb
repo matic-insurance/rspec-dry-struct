@@ -6,7 +6,7 @@ require 'rspec/dry/struct/matcher'
 module RSpec
   module Dry
     module Struct
-      def have_attribute(name, type)
+      def have_attribute(name, type) # rubocop:disable Style/PredicateName
         Matcher.new(name, type)
       end
     end

@@ -1,0 +1,10 @@
+require: rubocop-rspec
+
+Metrics/LineLength:
+  Max: 95
+
+Style/Documentation:
+  Enabled: false
+
+Style/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: no_space

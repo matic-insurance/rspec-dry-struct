@@ -11,10 +11,8 @@ describe RSpec::Dry::Struct do
     Types = Dry::Types.module
     subject { instance.have_attribute(:attr, Types::String) }
 
-    it 'returns a new matcher instance' do
-      expect(subject).to be_an_instance_of(RSpec::Dry::Struct::Matcher)
-      expect(subject.attr_name).to eq :attr
-      expect(subject.attr_type).to eq Types::String
-    end
+    it { is_expected.to be_an_instance_of(RSpec::Dry::Struct::Matcher) }
+    its(:attr_name) { is_expected.to eq :attr }
+    its(:attr_type) { is_expected.to eq Types::String }
   end
 end
