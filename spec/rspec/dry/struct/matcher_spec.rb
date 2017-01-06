@@ -8,7 +8,7 @@ RSpec.describe RSpec::Dry::Struct::Matcher do
   let(:attr_name) { :first_name }
 
   let(:struct_class) do
-    Class.new(Dry::Types::Struct) do
+    Class.new(Dry::Struct) do
       attribute :first_name, Types::Strict::String
     end
   end

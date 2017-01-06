@@ -1,5 +1,5 @@
 require 'rspec/core'
-require 'dry/types'
+require 'dry/struct'
 require 'rspec/dry/struct/version'
 require 'rspec/dry/struct/matcher'
 
