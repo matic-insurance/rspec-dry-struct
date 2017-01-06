@@ -21,6 +21,12 @@ RSpec.describe RSpec::Dry::Struct::Matcher do
     end
   end
 
+  it 'contains failure message when negated' do
+    matcher.matches?(struct_class)
+    expect(matcher.failure_message_when_negated)
+      .to eq "expected #{struct_class} to not have :first_name attribute, but it was found"
+  end
+
   context 'with wrong attr_name' do
     let(:attr_name) { :last_name }
 

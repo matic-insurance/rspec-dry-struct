@@ -24,6 +24,10 @@ module RSpec
           attr_type_mismatch_message(@actual)
         end
 
+        def failure_message_when_negated
+          "#{unexpected_message(@actual)}, but it was found"
+        end
+
         private
 
         def attr_present?
@@ -44,6 +48,10 @@ module RSpec
 
         def expected_message(actual)
           "expected #{actual} to have #{@attr_name.inspect} attribute"
+        end
+
+        def unexpected_message(actual)
+          expected_message(actual).gsub('to have', 'to not have')
         end
       end
     end
