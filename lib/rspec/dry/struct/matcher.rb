@@ -11,8 +11,10 @@ module RSpec
 
         def matches?(actual)
           @actual = actual
-          @actual_attribute = actual.schema[@attr_name]
-          attr_present? && correct_attr_type?
+          @actual_attribute = actual.schema.key(@attr_name).type
+          correct_attr_type?
+        rescue KeyError
+          false
         end
 
         def description
@@ -29,10 +31,6 @@ module RSpec
         end
 
         private
-
-        def attr_present?
-          !@actual_attribute.nil?
-        end
 
         def correct_attr_type?
           @attr_type.nil? || @actual_attribute == @attr_type

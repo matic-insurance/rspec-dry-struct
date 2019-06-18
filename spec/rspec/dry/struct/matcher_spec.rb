@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe RSpec::Dry::Struct::Matcher do
-  Types = Dry::Types.module
+  Types = Dry.Types(default: :nominal)
 
   subject { matcher }
 
